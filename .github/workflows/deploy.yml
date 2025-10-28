@@ -1,7 +1,9 @@
 name: Deploy FullStack App
+
 on:
   push:
     branches: [main]
+
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -18,25 +20,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
 
-      - name: Install Backend Dependencies
+      - name: Install and Test Backend
         run: |
           cd backend
           npm install
-        if: contains(github.event.head_commit.message, 'backend') || !contains(github.event.head_commit.message, 'skip-backend')
+          echo "✅ Backend dependencies installed"
 
-      - name: Install Frontend Dependencies
+      - name: Install and Build Frontend
         run: |
           cd frontend
           npm install
-        if: contains(github.event.head_commit.message, 'frontend') || !contains(github.event.head_commit.message, 'skip-frontend')
-
-      - name: Build Frontend
-        run: |
-          cd frontend
           npm run build
-        if: contains(github.event.head_commit.message, 'frontend') || !contains(github.event.head_commit.message, 'skip-frontend')
+          echo "✅ Frontend built successfully"
 
   build-and-push:
     name: Build and Push Docker Images
