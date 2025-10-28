@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "vite preview --port 3000 --host"
+    "start": "vite preview --port 3000 --host",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
     "react": "^18.2.0",
