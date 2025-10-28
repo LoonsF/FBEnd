@@ -1,9 +1,7 @@
 name: Deploy FullStack App
-
 on:
   push:
     branches: [main]
-
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
