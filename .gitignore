@@ -1,0 +1,36 @@
+
+.terraform/*
+.terraform.lock.hcl
+/terraform.tfstate
+/terraform.tfstate.backup
+/.terraform.tfstate.lock.info
+**/*.tfvars
+**/*.tfvars.json
+
+**/oci_api_key.pem
+**/*.pem
+**/secrets.tf
+**/.env
+
+**/*.log
+**/logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node.js
+**/node_modules/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/.npm
+**/.eslintcache
+
+# Build outputs
+**/dist/
+**/build/
+**/.vite/
+
+# Docker
+**/.docker/
